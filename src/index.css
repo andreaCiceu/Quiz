@@ -1,0 +1,144 @@
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  background-color: #f5f7fb;
+  background-image: url(./images/blobs.png), url(./images/blobs1.png);
+  background-repeat: no-repeat;
+  background-position-x: 100%, 0%;
+  background-position-y: 0%, 100%;
+  background-size: 25%, 15%;
+}
+
+.start-quizz {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.intro-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.title {
+  font-family: "Karla", sans-serif;
+  font-size: 4rem;
+  color: #293264;
+}
+
+.intro-text {
+  padding-top: 10px;
+  font-size: 1.2rem;
+  color: #293264;
+  padding-bottom: 30px;
+}
+
+.button {
+  width: 193px;
+  height: 52px;
+  border: none;
+  border-radius: 20px;
+  background-color: #4d5b9e;
+  font-size: 1rem;
+  color: white;
+  letter-spacing: 2px;
+  cursor: pointer;
+}
+
+.check-button {
+  margin-top: 10px;
+  width: 170px;
+  height: 45px;
+  border: none;
+  border-radius: 20px;
+  background-color: #4d5b9e;
+  font-size: 14px;
+  color: white;
+  font-weight: 400;
+  letter-spacing: 2px;
+  cursor: pointer;
+}
+
+.check-answers {
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+}
+
+.score-text {
+  margin-right: 20px;
+  font-size: 22px;
+  font-weight: 500;
+}
+
+.quiz-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding-top: 30px;
+}
+.question-text {
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.quiz-options {
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.quiz-options input[type="radio"] {
+  display: none;
+}
+
+label {
+  display: inline-block;
+  margin-left: 20px;
+  overflow: hidden;
+}
+
+label .span {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 150px;
+  height: 40px;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  text-align: center;
+  padding: 5px;
+  border: solid 2px #ccc;
+  border-radius: 50px;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+
+input[type="radio"]:checked + .span {
+  background-color: rgb(211, 191, 213);
+  border: rgb(196, 158, 199);
+}
+
+label.show-answer input[type="radio"] + .span {
+  background-color: rgb(122, 198, 115);
+  border: rgb(152, 210, 131);
+}
+
+label.show-incorrect input[type="radio"]:checked + .span {
+  background-color: rgb(198, 138, 115);
+  border: rgb(210, 142, 103);
+}
