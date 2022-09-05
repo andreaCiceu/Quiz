@@ -20,12 +20,13 @@ function Question(props) {
               className = "show-answer";
             }
             // daca ai raspuns gresit, sa faca rosu
-            if (
-              option === props.choice.value &&
-              option !== props.iscorrectAnswer
-            ) {
-              className = "show-incorrect";
-            }
+            // if (
+            //   props.choice > 0 &&
+            //   option === props.choice.value &&
+            //   option !== props.iscorrectAnswer
+            // ) {
+            //   className = "show-incorrect";
+            // }
           }
           // console.log("@@@", className, props);
 

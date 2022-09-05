@@ -7,6 +7,7 @@ import Confetti from "react-confetti";
 
 function App() {
   const [start, setStart] = React.useState(false);
+  const [fetchQuiz, setFetchQUiz] = React.useState(false);
   const [questionArray, setQuestionArray] = React.useState([]);
   const [correctAnswer, setCorrectAnswer] = React.useState([]);
   const [showResult, setShowResult] = React.useState(false);
@@ -26,16 +27,16 @@ function App() {
         let questionArray = data.results.map((item) => {
           answers.push(item.correct_answer);
           let optionsArray = [
-            item.correct_answer,
-            item.incorrect_answers[0],
-            item.incorrect_answers[1],
-            item.incorrect_answers[2],
+            decode(item.correct_answer),
+            decode(item.incorrect_answers[0]),
+            decode(item.incorrect_answers[1]),
+            decode(item.incorrect_answers[2]),
           ];
           shuffleItems(optionsArray);
 
           return {
             question: decode(item.question),
-            options: decode(optionsArray),
+            options: optionsArray,
             id: nanoid(),
           };
         });
@@ -45,7 +46,7 @@ function App() {
       .catch((err) => {
         console.log(err);
       });
-  }, []);
+  }, [fetchQuiz]);
 
   function shuffleItems(array) {
     array.sort(() => Math.random() - 0.5);
@@ -72,6 +73,7 @@ function App() {
     } else {
       setShowResult(false);
       setStart(false);
+      setFetchQUiz((prevState) => !prevState);
     }
   }
 
@@ -89,8 +91,6 @@ function App() {
     setResult(result);
   }
 
-  console.log(result);
-
   function startQuiz() {
     setStart((prevState) => !prevState);
   }
@@ -104,7 +104,6 @@ function App() {
           {
             value: event.target.value,
             name: event.target.name,
-            checked: event.target.checked,
           },
         ];
       });
