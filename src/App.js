@@ -74,6 +74,7 @@ function App() {
       setShowResult(false);
       setStart(false);
       setFetchQUiz((prevState) => !prevState);
+      setchoiceArray([]);
     }
   }
 
