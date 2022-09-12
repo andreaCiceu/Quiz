@@ -1,5 +1,4 @@
 import React from "react";
-import "./App.css";
 import { nanoid } from "nanoid";
 import { decode } from "html-entities";
 import Question from "./components/Question";
